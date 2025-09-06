@@ -1,7 +1,7 @@
 # Nova Astrotomic Translatable
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/kiritokatklian/nova-astrotranslatable.svg?style=flat-square)](https://packagist.org/packages/kiritokatklian/nova-astrotranslatable)
-[![Total Downloads](https://img.shields.io/packagist/dt/kiritokatklian/nova-astrotranslatable.svg?style=flat-square)](https://packagist.org/packages/kiritokatklian/nova-astrotranslatable)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/nathaniel3456/nova-astrotranslatable.svg?style=flat-square)](https://packagist.org/packages/nathaniel3456/nova-astrotranslatable)
+[![Total Downloads](https://img.shields.io/packagist/dt/nathaniel3456/nova-astrotranslatable.svg?style=flat-square)](https://packagist.org/packages/nathaniel3456/nova-astrotranslatable)
 
 This [Laravel Nova](https://nova.laravel.com) allows you to make any input field [astrotomic/laravel-translatable](https://github.com/astrotomic/laravel-translatable) compatible and localizable.
 
@@ -67,7 +67,7 @@ Install the package in a Laravel Nova project via Composer:
 
 ```bash
 # Install nova-astrotranslatable
-composer require kiritokatklian/nova-astrotranslatable
+composer require nathaniel3456/nova-astrotranslatable
 
 # Publish configuration (optional, but useful for setting default locales)
 php artisan vendor:publish --tag="nova-translatable-config"
@@ -105,7 +105,7 @@ To do so, add the `->rulesFor()` on your field and the `HandlesTranslatable` tra
 `->rulesFor` accepts `array|string|callable` locales and `array|callable` rules.
 
 ```php
-use Kiritokatklian\NovaAstrotranslatable\HandlesTranslatable;
+use Nathaniel3456\NovaAstrotranslatable\HandlesTranslatable;
 
 class Product extends Resource
 {
@@ -151,7 +151,7 @@ The configuration option `fill_other_locales_from` allows you to pre-fill other 
 
 ### One select for all fields on a page
 
-If you don't want to display the locale select next to each field, you can set the `display_type` to `none` and add a `Kiritokatklian\NovaAstrotranslatable\Fields\LocaleSelect` field to your Nova resource. This will render a single select for all fields.
+If you don't want to display the locale select next to each field, you can set the `display_type` to `none` and add a `Nathaniel3456\NovaAstrotranslatable\Fields\LocaleSelect` field to your Nova resource. This will render a single select for all fields.
 
 ## Edge cases
 

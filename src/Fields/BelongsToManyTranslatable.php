@@ -1,9 +1,9 @@
 <?php
 
-namespace Kiritokatklian\NovaAstrotranslatable\Fields;
+namespace Nathaniel3456\NovaAstrotranslatable\Fields;
 
 use Laravel\Nova\Fields\BelongsToMany;
-use Kiritokatklian\NovaAstrotranslatable\Rules\NotExactlyAttachedTranslatable;
+use Nathaniel3456\NovaAstrotranslatable\Rules\NotExactlyAttachedTranslatable;
 
 class BelongsToManyTranslatable extends BelongsToMany
 {

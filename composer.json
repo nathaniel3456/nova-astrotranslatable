@@ -1,5 +1,5 @@
 {
-  "name": "kiritokatklian/nova-astrotranslatable",
+  "name": "nathaniel3456/nova-astrotranslatable",
   "description": "An astrotomic/laravel-translatable extension for Laravel Nova.",
   "keywords": [
     "laravel",
@@ -19,8 +19,8 @@
       "homepage": "https://github.com/optimistdigital"
     },
     {
-      "name": "Kiritokatklian",
-      "homepage": "https://kurozora.app",
+      "name": "Nathaniel Ho",
+      "homepage": "https://github.com/nathaniel3456",
       "role": "Developer"
     }
   ],
@@ -28,20 +28,20 @@
   "require": {
     "php": ">=8.2",
     "laravel/nova": "^5.0",
-    "astrotomic/laravel-translatable": "dev-l12-compatibility"
+    "astrotomic/laravel-translatable": "^11.10"
   },
   "require-dev": {
     "laravel/nova-devtool": "^1.0"
   },
   "autoload": {
     "psr-4": {
-      "Kiritokatklian\\NovaAstrotranslatable\\": "src/"
+      "Nathaniel3456\\NovaAstrotranslatable\\": "src/"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "Kiritokatklian\\NovaAstrotranslatable\\FieldServiceProvider"
+        "Nathaniel3456\\NovaAstrotranslatable\\FieldServiceProvider"
       ]
     }
   },

@@ -1,6 +1,6 @@
 <?php
 
-namespace Kiritokatklian\NovaAstrotranslatable;
+namespace Nathaniel3456\NovaAstrotranslatable;
 
 use Illuminate\Contracts\Validation\Validator as ValidatorContract;
 use Illuminate\Support\Arr;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Kiritokatklian\NovaAstrotranslatable;
+namespace Nathaniel3456\NovaAstrotranslatable;
 
 use Exception;
 use Laravel\Nova\Fields\Textarea;
@@ -128,7 +128,7 @@ class TranslatableFieldMixin
                 $realAttribute = FieldServiceProvider::normalizeAttribute($this->meta['translatable']['original_attribute'] ?? $attribute);
                 $value = $request->{$realAttribute};
 
-                if($request->editMode == 'create') {
+                if ($request->editMode == 'create') {
                     foreach ($locales as $localeKey => $localeName) {
                         $translationEntry = $model->translateOrNew($localeKey);
 
