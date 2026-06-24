@@ -139,6 +139,38 @@ class TranslatableFieldMixin
                         $model->translate($localeKey)->{$realAttribute} = $value[$localeKey];
                     }
                 }
+
+                // Claim Trix (withFiles) attachments per locale so Nova's daily
+                // PruneStaleAttachments does not delete the uploaded files. The
+                // base translatable fill above only writes text, replacing Nova's
+                // Trix fill which is what normally calls persistDraft — without
+                // this, inline images are pruned ~24h after save and 404.
+                //
+                // The mixin is generic (Text/Trix/…), so gate on a withFiles
+                // Storable field. The front-end submits per-locale draft ids under
+                // PHP-mangled keys (child attr "description.en" → form name
+                // "description_enDraftId[en]"), so scan defensively rather than
+                // hard-coding the parsing-dependent key. The returned closure runs
+                // after $model is saved (Nova collects fill callbacks post-save),
+                // so the model has a key for the attachment morph.
+                if ($this instanceof \Laravel\Nova\Contracts\Storable && ($this->withFiles ?? false)) {
+                    $draftIds = collect($request->all())
+                        ->filter(fn ($v, $k) => str_contains($k, 'DraftId') && str_contains($k, $realAttribute))
+                        ->flatten()
+                        ->filter()
+                        ->values()
+                        ->all();
+
+                    if (! empty($draftIds)) {
+                        $field = $this;
+
+                        return function () use ($draftIds, $field, $model) {
+                            foreach ($draftIds as $draftId) {
+                                \Laravel\Nova\Fields\Attachments\PendingAttachment::persistDraft($draftId, $field, $model);
+                            }
+                        };
+                    }
+                }
             });
 
             return $this;
